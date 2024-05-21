@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="EASI-Tex: Edge-Aware Mesh Texturing from Single Image">
+    <meta name="keywords" content="EASI-Tex, edge-aware, single image, texture transfer, diffusion, 3D textures, 3D contents, generation">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EASI-Tex: Edge-Aware Mesh Texturing from Single Image</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5SVQBE9MCP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5SVQBE9MCP');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+
+    <link rel="icon" href="./static/assets/capam_sheild.png">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+
+    <!-- For Latex -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+
+<body>
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title">EASI-Tex: Edge-Aware Mesh Texturing from Single Image</h1>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a href="https://sairajk.github.io/">Sai Raj Kishore Perla</a><sup>1</sup>,</span>
+                            <span class="author-block">
+                                <a href="https://yizhiwang96.github.io/">Yizhi Wang</a><sup>1</sup>,</span>
+                            <span class="author-block">
+                                <a href="https://www.sfu.ca/~amahdavi/">Ali Mahdavi-Amiri</a><sup>1</sup>,</span>
+                            <span class="author-block">
+                                <a href="https://www.cs.sfu.ca/~haoz/">Hao (Richard) Zhang</a><sup>1,2</sup>,
+                            </span>
+                        </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><sup>1</sup>Simon Fraser University,</span>
+                            <span class="author-block"><sup>2</sup>Amazon, Canada</span>
+                        </div>
+
+                        <br>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="title is-4">ACM Transactions on Graphics (SIGGRAPH 2024)</span>
+                        </div>
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <!-- PDF Link. -->
+                                <span class="link-block">
+                                    <a href="" target="_blank"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </span>
+                                        <span>Paper</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a class="external-link button is-normal is-rounded is-dark" href="" target="_blank">
+                                        <span class="icon">
+                                            <i class="ai ai-arxiv"></i>
+                                        </span>
+                                        <span>arXiv</span>
+                                    </a>
+                                </span>
+
+                                <!-- Video Link. -->
+                                <!-- <span class="link-block">
+                                    <a href="" target="_blank"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-youtube"></i>
+                                        </span>
+                                        <span>Video</span>
+                                    </a>
+                                </span> -->
+
+                                <!-- Github Link. -->
+                                <span class="link-block">
+                                    <a href="https://github.com/sairajk/easi-tex" class="external-link button is-normal is-rounded is-dark" target="_blank">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code</span>
+                                    </a>
+                                </span>
+                                <!-- Dataset Link. -->
+                                <span class="link-block"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero teaser">
+        <div class="container is-max-desktop">
+            <div class="hero-body">
+                
+                  <div class="columns is-centered has-text-centered">
+                    <!-- <div class="column is-four-fifths"> -->
+                    <div class="column is-full-width">
+                        <video poster="" id="teaser" autoplay controls muted loop playsinline height="100%">
+                            <source src="./static/assets/out_4c.mp4"
+                                    type="video/mp4">
+                        </video>
+                    </div>
+                  </div>
+                
+                  <h2 class=" subtitle has-text-centered" style="padding-top: 10px">
+                    <b>EASI-Tex</b> seamlessly transfers an object's texture from a single RGB image to a given 3D mesh. Our method exhibits natural textures for the 3D objects, respecting its semantics, and better preservation of geometric details and features, while being faithful to the input texture.
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+          <!-- Abstract. -->
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+              <h2 class="title is-3">Abstract</h2>
+              <div class="content has-text-justified">
+                We present a novel approach for <i>single-image mesh texturing</i>, which employs a diffusion model with judicious conditioning to seamlessly transfer an object's texture from a single RGB image to a given 3D mesh object.
+                We do not assume that the two objects belong to the same category, and even if they do, there can be significant discrepancies in their geometry and part proportions.
+                Our method aims to rectify the discrepancies by conditioning a pre-trained Stable Diffusion generator with edges describing the mesh through ControlNet, and features extracted from the input image using IP-Adapter to generate textures that respect the underlying geometry of the mesh and the input texture without any optimization or training.
+                We also introduce <i>Image Inversion</i>, a novel technique to quickly personalize the diffusion model for a single concept using a <i>single image</i>, for cases where the pre-trained IP-Adapter falls short in capturing all the details from the input image faithfully.
+                Experimental results demonstrate the efficiency and effectiveness of our edge-aware single-image mesh texturing approach, coined <b>EASI-Tex</b>, in preserving the details of the input texture on diverse 3D objects, while respecting their geometry.
+              </div>
+            </div>
+          </div>
+          <!--/ Abstract. -->
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+          <!-- Our Approch. -->
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-full-width">
+              <h2 class="title is-3">Our Approch</h2>
+              <img src="./static/assets/pipeline.jpg"/>
+              <div class="content has-text-centered" style="padding-top: 10px">
+                The pipeline of <b>EASI-Tex</b> for <i>Image Inversion</i> (left) and generating textured views (right).
+              </div>
+            </div>
+          </div>
+          <!--/ Our Approch. -->
+      
+          <!-- Description. -->
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+              <!-- <h2 class="title is-3">Video</h2> -->
+              <div class="content has-text-justified">
+                <p>
+                    The texture generation network takes an untextured 3D mesh $(\textbf{M})$, a reference texture image $(\mathbf{I_{tex}})$, and a descriptive text prompt  as input to generate a textured view of the mesh as output. 
+                    <!-- Stable Diffusion’s U-Net is guided by three conditioning signals: (1) features $(\mathbf{f_{geo}})$ extracted from the edge map of a sampled view of the 3D mesh, through ControlNet, (2) features $(\mathbf{f_{tex}})$ extracted from the input texture image, through IP-Adapter, and (3) a text prompt describing the desired textured output, through $\mathbf{f_{txt}}$. -->
+                </p>
+                <p>
+                    Apart from text, we condition the generation process with edges describing the mesh, through ControlNet, and the input texture image, through IP-Adapter. 
+                    <!-- We propose to extract edges from various geometric attributes of the mesh, such as connected components, depth, and mesh normals.  -->
+                    Edge conditioning allows us to respect the "identity" of the mesh better, than depth or normals, and IP-Adapter allows us to use a single image as prompt without any additional training or optimization.
+                </p>
+                <p>
+                    We also introduce <i>Image Inversion</i>, a novel technique to quickly personalize the diffusion model for a single concept using a single image. It is an optional step and we use it for cases where the pre-trained IP-Adapter falls short in capturing all the details from the input texture image faithfully. It involves fine-tuning parts of our network: Stable Diffusion's U-Net and IP-Adapter's Projection Network (indicated by &#x1F525), for a few iterations using a single image $\mathbf{I_{tex}}$.
+                </p>
+                <p>
+                    Check out the paper to learn more. &#x1F642
+                </p>
+              </div>
+            </div>
+          </div>
+          <!--/ Description. -->
+        </div>
+      </section>
+
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title  is-3">BibTeX</h2>
+            <pre>
+<code style="display: block; white-space: pre-wrap; margin-block-start: -20px; margin-block-end: -35px;">
+@article{perla2024easitex,
+    title={EASI-Tex: Edge-Aware Mesh Texturing from Single Image},
+    author = {Perla, Sai Raj Kishore and Wang, Yizhi and Mahdavi-Amiri, Ali and Zhang, Hao},
+    journal = {ACM Transactions on Graphics (TOG)},
+    publisher = {ACM New York, NY, USA},
+    year = {2024},
+    volume = {43},
+    number = {4},
+    articleno = {40},
+    doi = {10.1145/3648611},
+    url = {https://github.com/sairajk/easi-tex},
+}
+</code>
+            </pre> 
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+
+                <a class="icon-link" href="" target="_blank">
+                    <i class="fas fa-file-pdf"></i>
+                </a>
+                <a class="icon-link" href="" target="_blank">
+                    <i class="ai ai-arxiv"></i>
+                </a>
+                <a class="icon-link" href="https://github.com/sairajk/easi-tex" class="external-link" disabled target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content">
+                        <p style="text-align:center">
+                            This webpage template is adapted from <a href="https://nerfies.github.io/" target="_blank">Nerfies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
