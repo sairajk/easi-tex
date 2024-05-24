@@ -11,7 +11,7 @@
     ·
     <a href="https://www.cs.sfu.ca/~haoz/" target="_blank"><strong>Hao (Richard) Zhang</strong></a>
     <br />
-    <i>ACM Transactions on Graphics (SIGGRAPH 2024)</i>    
+    <i>ACM Transactions on Graphics (Proceedings of SIGGRAPH), 2024</i>    
   </p>
 
   <p align="center">

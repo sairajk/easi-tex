@@ -155,3 +155,15 @@ body {
 #interpolation-image-wrapper img {
   border-radius: 5px;
 }
+
+/* For Color Gradient BG for text */
+.text-color-gradient {
+  display: inline-block;
+  font-size: 10em;
+  font-weight: 700;
+  background: linear-gradient(120deg, #eecda3 0%, #ef629f 100%);
+  /* background: linear-gradient(120deg, #108dc7 0%, #ef8e38 100%); */
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
