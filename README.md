@@ -43,7 +43,7 @@ If you found our work helpful, please consider citing:
     volume = {43},
     number = {4},
     articleno = {40},
-    doi = {10.1145/3648611},
+    doi = {10.1145/3658222},
     url = {https://github.com/sairajk/easi-tex},
 }
 ```
