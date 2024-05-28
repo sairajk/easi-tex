@@ -15,7 +15,7 @@
   </p>
 
   <p align="center">
-    <a href="" target="_blank"><strong>arXiv</strong></a>
+    <a href="https://arxiv.org/abs/2405.17393" target="_blank"><strong>arXiv</strong></a>
     |
     <a href="https://sairajk.github.io/easi-tex" target="_blank"><strong>Project Page</strong></a>
   </p>
@@ -37,7 +37,7 @@ If you found our work helpful, please consider citing:
 @article{perla2024easitex,
     title={EASI-Tex: Edge-Aware Mesh Texturing from Single Image},
     author = {Perla, Sai Raj Kishore and Wang, Yizhi and Mahdavi-Amiri, Ali and Zhang, Hao},
-    journal = {ACM Transactions on Graphics (TOG)},
+    journal = {ACM Transactions on Graphics (Proceedings of SIGGRAPH)},
     publisher = {ACM New York, NY, USA},
     year = {2024},
     volume = {43},
