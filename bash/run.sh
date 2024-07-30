@@ -10,7 +10,7 @@ python scripts/generate_texture.py \
     --input_dir "data/meshes/${OBJ_NAME}" \
     --output_dir "outputs" \
     --obj_file "${OBJ_NAME}_fr-z_up-y.obj" \
-    --prompt "${TXT_PROMPT}" \
+    --prompt "${TEXT_PROMPT}" \
     --style_img "data/texture_images/${STYLE_IMAGE}" \
     --style_img_bg_color 255 255 255 \
     --ip_adapter_path "./ip_adapter" \
