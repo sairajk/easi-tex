@@ -172,5 +172,6 @@ body {
   display: flex;
   flex-wrap: wrap; /* keeps nice wrapping on small screens */
   gap: 0.5rem;     /* matches Bulma’s default spacing = 8px */
+  justify-content: center; /* center horizontally */
 }
 
