@@ -167,3 +167,10 @@ body {
   -webkit-background-clip: text;
   color: transparent;
 }
+
+.publication-links {  /* Add spacing between the buttons */
+  display: flex;
+  flex-wrap: wrap; /* keeps nice wrapping on small screens */
+  gap: 0.5rem;     /* matches Bulma’s default spacing = 8px */
+}
+
